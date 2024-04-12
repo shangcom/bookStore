@@ -68,13 +68,16 @@
 		]]>
 	</select>
 
-	<select id="selectGoodsBySearchWord" resultMap="goodsResult"   parameterType="String"  >
+	<select id="selectGoodsBySearchWord" resultMap="goodsResult"   parameterType="String"  > /*문자열 타입의 파라미터 사용. 검색어(searchWord)가 그 파라미터*/
      <![CDATA[
 		select g.*,d.fileName from t_shopping_goods g, t_goods_detail_image d
-		where g.goods_id=d.goods_id
-		  and d.filetype='main_image'
+		/*t_shopping_goods 테이블의 g 별칭과 t_goods_detail_image 테이블의 d 별칭을 사용하여 두 테이블을 조인*/
+		where g.goods_id=d.goods_id/*두 테이블이 goods_id로 연결되어 있음을 명시*/
+		  and d.filetype='main_image'/*그리고 이미지 파일 타입이 'main_image'인 경우만을 선택*/
 		  and g.goods_title like '%'|| #{searchWord} || '%'
-		order by g.goods_creDate desc
+		/*또한 사용자가 입력한 검색어(searchWord)가 상품 제목(goods_title)에 포함되어 있는 상품만을 필터링
+		  '%' 와일드카드와 함께 사용되어, 검색어가 상품 제목의 어느 부분에나 포함될 수 있음을 의미*/
+		order by g.goods_creDate desc /*생성 날짜(goods_creDate) 기준으로 내림차순 정렬하여, 최신 상품부터 결과에 나타냄.*/
 		]]>
 	</select>
 
