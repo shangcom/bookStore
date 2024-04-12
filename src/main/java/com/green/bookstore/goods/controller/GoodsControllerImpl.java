@@ -72,10 +72,18 @@ public class GoodsControllerImpl extends BaseController implements GoodsControll
 이때, 클라이언트는 받은 JSON 데이터를 활용해 사용자에게 실시간으로 검색 결과를 보여줌.
 이 과정에서 페이지 전체를 새로고침할 필요가 없으므로 사용자 경험이 개선됨*/
 
+
+    /*searchGoods() 메서드 : 사용자가 입력한 검색어에 해당하는 상품 리스트를 조회하고, 이를 모델 데이터로 전달하여 지정된 뷰를 통해 사용자에게 보여주는 역할.*/
     @RequestMapping(value = "/searchGoods.do", method = RequestMethod.GET)
     public ModelAndView searchGoods(@RequestParam("searchWord") String searchWord, HttpServletRequest request, HttpServletResponse response) throws Exception {
-        String viewName=()
-        return null;
+        String viewName = (String) request.getAttribute("viewName");
+        /*요청 객체에서 viewName 속성을 가져와서 문자열 변수 viewName에 저장
+        * 이 viewName은 응답으로 사용될 뷰의 이름을 나타냄. 이 값은 일반적으로 인터셉터나 필터를 통해 사전에 설정됨.*/
+        List<GoodsVO> goodsList = goodService.searchGoods(searchWord); // searchGoods 메서드 사용해서 검색어에 해당하는 상품 조회하여 goodsVO 객체 리스트로 반환.
+        ModelAndView mav = new ModelAndView(viewName);
+        mav.addObject("goodsList", goodsList);
+
+        return mav; // 조회된 상품 리스트를 mav에 담아 전달.
     }
 
     private void addGoodsInQuick(String goods_id, GoodsVO goodsVO, HttpSession session) {
