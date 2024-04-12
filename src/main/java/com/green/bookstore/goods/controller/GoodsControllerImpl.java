@@ -2,11 +2,11 @@ package com.green.bookstore.goods.controller;
 
 import com.green.bookstore.common.base.BaseController;
 import com.green.bookstore.goods.service.GoodsService;
-import com.green.bookstore.goods.controller.GoodsController;
 import com.green.bookstore.goods.vo.GoodsVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -24,7 +24,7 @@ public class GoodsControllerImpl extends BaseController implements GoodsControll
     @Autowired
     private GoodsService goodService;
 
-    @Override
+    @RequestMapping(value="/goodsDetail.do" ,method = RequestMethod.GET)
     public ModelAndView goodsDetail(@RequestParam("goods_id") String goods_id, HttpServletRequest request, HttpServletResponse response) throws Exception {
         String viewName = (String) request.getAttribute("viewName"); //현재 요청된 매핑의 뷰 이름을 가져옴.
         HttpSession session = request.getSession(); // 최근 본 상품 목록에 정보 전달하기 위한 세션 생성.
@@ -38,12 +38,12 @@ public class GoodsControllerImpl extends BaseController implements GoodsControll
         return mav;
     }
 
-    @Override
+    @RequestMapping(value="/keywordSearch.do",method = RequestMethod.GET,produces = "application/text; charset=utf8")
     public String keywordSearch(String keyword, HttpServletRequest request, HttpServletResponse response) throws Exception {
         return null;
     }
 
-    @Override
+    @RequestMapping(value="/searchGoods.do" ,method = RequestMethod.GET)
     public ModelAndView searchGoods(String searchWord, HttpServletRequest request, HttpServletResponse response) throws Exception {
         return null;
     }

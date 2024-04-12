@@ -3,8 +3,8 @@
 	"http://mybatis.org/dtd/mybatis-3-config.dtd">
 
 <configuration>
-  <typeAliases>
-    <typeAlias type="com.green.bookstore.goods.vo.GoodsVO" alias="goodsVO" />
+  <typeAliases> <!--타입 이름이 기니까 간단하게 줄여주는 용도.-->
+    <typeAlias type="com.green.bookstore.goods.vo.GoodsVO" alias="goodsVO" /> <!--앞의 타입을 뒤의 별명으로 간단하게 해줌.-->
     <typeAlias type="com.green.bookstore.goods.vo.ImageFileVO" alias="imageFileVO" />
 <!--    <typeAlias type="com.green.bookstore.member.vo.MemberVO" alias="memberVO" />-->
 <!--    <typeAlias type="com.green.bookstore.cart.vo.CartVO" alias="cartVO" />-->

@@ -33,14 +33,14 @@ public class GoodsDAOImpl implements GoodsDAO {
     }
 
     @Override
-    public GoodsVO selectGoodsDetail(String goods_id) throws DataAccessException {
-        GoodsVO goodsVO = (GoodsVO) sqlSession.selectOne("mappers.goods.selectGoodsDetail", goods_id);
+    public GoodsVO selectGoodsDetail(String goods_id) throws DataAccessException{
+        GoodsVO goodsVO=(GoodsVO)sqlSession.selectOne("mapper.goods.selectGoodsDetail",goods_id);
         return goodsVO;
     }
 
     @Override
-    public List<ImageFileVO> selectGoodsDetailImage(String goods_id) throws DataAccessException {
-        List<ImageFileVO> imageList = (ArrayList) sqlSession.selectList("mappers.goods.selectGoodsDetailImage", goods_id);
+    public List<ImageFileVO> selectGoodsDetailImage(String goods_id) throws DataAccessException{
+        List<ImageFileVO> imageList=(ArrayList)sqlSession.selectList("mapper.goods.selectGoodsDetailImage",goods_id);
         return imageList;
     }
 
