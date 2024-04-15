@@ -3,7 +3,6 @@ package com.green.bookstore.goods.controller;
 import com.green.bookstore.common.base.BaseController;
 import com.green.bookstore.goods.service.GoodsService;
 import com.green.bookstore.goods.vo.GoodsVO;
-import net.sf.json.JSON;
 import net.sf.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -42,7 +41,7 @@ public class GoodsControllerImpl extends BaseController implements GoodsControll
     }
 
     /*사용자가 입력하는 키워드를 받아 해당 키워드를 포함하는 상품 제목 목록을 JSON 형태로 반환하는 메서드*/
-    @RequestMapping(value = "/goods/keywordSearch.do", method = RequestMethod.GET, produces = "application/text; charset=utf-8")
+    @RequestMapping(value = "/keywordSearch.do", method = RequestMethod.GET, produces = "application/text; charset=utf-8")
     /*메소드가 처리할 HTTP 요청의 경로(/keywordSearch.do), 메소드(GET), 그리고 응답의 MIME 타입(application/text; charset=utf8)을 지정.
     클라이언트가 이 경로로 GET 요청을 보내면, 이 메소드가 호출되며, 응답은 UTF-8 인코딩의 텍스트 형태로 반환됨.*/
     public @ResponseBody String keywordSearch(@RequestParam("keyword") String keyword, HttpServletRequest request, HttpServletResponse response) throws Exception {

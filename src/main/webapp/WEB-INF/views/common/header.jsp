@@ -30,14 +30,14 @@
 			}
 		}); //end ajax	
 	}
-	
-	function displayResult(jsonInfo){ //keywordSearch 함수로부터 전달받은 JSON 객체(jsonInfo)를 처리.
+
+	function displayResult(jsonInfo){//keywordSearch 함수로부터 전달받은 JSON 객체(jsonInfo)를 처리.
 		var count = jsonInfo.keyword.length; //keyword 배열의 길이(count)를 계산하여, 검색 결과가 있는지 확인
 		if(count > 0) { //결과가 있으면, 동적으로 HTML을 생성하여 검색 제안 목록을 구성
 		    var html = '';
-		    for(var i in jsonInfo.keyword){
-			   html += "<a href=\"javascript:select('"+jsonInfo.keyword[i]+"')\">"+jsonInfo.keyword[i]+"</a><br/>";
-		    } // 각 제안 항목을 클릭했을 때 select 함수를 호출하도록 설정
+			for(var i in jsonInfo.keyword){
+				html += "<a href=\"javascript:select('"+jsonInfo.keyword[i]+"')\">"+jsonInfo.keyword[i]+"</a><br/>";
+			} // 각 제안 항목을 클릭했을 때 select 함수를 호출하도록 설정
 		    var listView = document.getElementById("suggestList");
 		    listView.innerHTML = html;
 		    show('suggest'); //최종적으로 생성된 HTML을 listView라는 ID를 가진 요소의 innerHTML에 설정하여 화면에 표시.
