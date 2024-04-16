@@ -3,6 +3,13 @@
 	"http://mybatis.org/dtd/mybatis-3-config.dtd">
 
 <configuration>
+
+  <settings>
+    <!-- 만약 null로 데이터가 전달 되었다면 빈칸이 아니라 null로 인식하라는 설정.
+         value의 NULL은 반드시 대문자로 기재할 것. 소문자로 기재시 에러 발생 -->
+    <setting name="jdbcTypeForNull" value="NULL"></setting>
+  </settings>
+
   <typeAliases> <!--타입 이름이 기니까 간단하게 줄여주는 용도.-->
     <typeAlias type="com.green.bookstore.goods.vo.GoodsVO" alias="goodsVO" /> <!--앞의 타입을 뒤의 별명으로 간단하게 해줌.-->
     <typeAlias type="com.green.bookstore.goods.vo.ImageFileVO" alias="imageFileVO" />
@@ -10,8 +17,8 @@
     <typeAlias type="com.green.bookstore.cart.vo.CartVO" alias="cartVO" />
     <typeAlias type="com.green.bookstore.order.vo.OrderVO" alias="orderVO" />
     <typeAlias type="com.green.bookstore.mypage.vo.MyPageVO" alias="mypageVO" />
-    
   </typeAliases>
+
 </configuration>
 
 

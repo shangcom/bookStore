@@ -50,8 +50,7 @@ public class CartControllerImpl extends BaseController implements CartController
 		String member_id=memberVO.getMember_id();
 		
 		cartVO.setMember_id(member_id);
-		//īƮ ������� �̹� ��ϵ� ��ǰ���� �Ǻ��Ѵ�.
-		cartVO.setGoods_id(goods_id);
+				cartVO.setGoods_id(goods_id);
 		cartVO.setMember_id(member_id);
 		boolean isAreadyExisted=cartService.findCartGoods(cartVO);
 		System.out.println("isAreadyExisted:"+isAreadyExisted);

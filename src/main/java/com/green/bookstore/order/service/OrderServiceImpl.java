@@ -24,7 +24,6 @@ public class OrderServiceImpl implements OrderService {
 	
 	public void addNewOrder(List<OrderVO> myOrderList) throws Exception{
 		orderDAO.insertNewOrder(myOrderList);
-		//īƮ���� �ֹ� ��ǰ �����Ѵ�.
 		orderDAO.removeGoodsFromCart(myOrderList);
 	}	
 	

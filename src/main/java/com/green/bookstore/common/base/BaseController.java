@@ -33,12 +33,12 @@ public abstract class BaseController {
 
             File file = new File(CURR_IMAGE_REPO_PATH + "\\" + fileName);
             if (mFile.getSize() != 0) { //File Null Check
-                if (!file.exists()) { //��λ� ������ �������� ���� ���
-                    if (file.getParentFile().mkdirs()) { //��ο� �ش��ϴ� ���丮���� ����
-                        file.createNewFile(); //���� ���� ����
+                if (!file.exists()) {
+                    if (file.getParentFile().mkdirs()) {
+                        file.createNewFile();
                     }
                 }
-                mFile.transferTo(new File(CURR_IMAGE_REPO_PATH + "\\" + "temp" + "\\" + originalFileName)); //�ӽ÷� ����� multipartFile�� ���� ���Ϸ� ����
+                mFile.transferTo(new File(CURR_IMAGE_REPO_PATH + "\\" + "temp" + "\\" + originalFileName)); 
             }
         }
         return fileList;
